@@ -6,9 +6,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.myshoppinglist.Adapter.ShoppingAdapter;
+import com.example.myshoppinglist.Model.ShoppingModel;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView itemsRecyclerView;
+    private ShoppingAdapter itemsAdapter;
+
+    private List<ShoppingModel> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         itemsRecyclerView = findViewById(R.id.itemsRecyclerView);
         itemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        itemsAdapter = new ShoppingAdapter(this);
+        itemsRecyclerView.setAdapter(itemsAdapter);
     }
 }
