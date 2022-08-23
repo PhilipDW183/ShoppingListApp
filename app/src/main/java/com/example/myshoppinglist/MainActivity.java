@@ -9,7 +9,10 @@ import android.os.Bundle;
 import com.example.myshoppinglist.Adapter.ShoppingAdapter;
 import com.example.myshoppinglist.Model.ShoppingModel;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import kotlin.collections.ArrayDeque;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,10 +29,26 @@ public class MainActivity extends AppCompatActivity {
         // hide the top most bar
         getSupportActionBar().hide();
 
+        itemList = new ArrayList<>();
+
         itemsRecyclerView = findViewById(R.id.itemsRecyclerView);
         itemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         itemsAdapter = new ShoppingAdapter(this);
         itemsRecyclerView.setAdapter(itemsAdapter);
+
+        ShoppingModel item = new ShoppingModel();
+        item.setItem("This is a test item");
+        item.setStatus(0);
+        item.setId(1);
+
+        itemList.add(item);
+        itemList.add(item);
+        itemList.add(item);
+        itemList.add(item);
+        itemList.add(item);
+
+        itemsAdapter.setItems(itemList);
+
     }
 }

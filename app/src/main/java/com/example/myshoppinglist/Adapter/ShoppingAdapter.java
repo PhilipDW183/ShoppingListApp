@@ -17,7 +17,7 @@ import java.util.List;
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
 
 
-    private List<ShoppingModel> ShoppingList;
+    private List<ShoppingModel> shoppingList;
     private MainActivity activity;
 
     public ShoppingAdapter(MainActivity activity) {
@@ -32,17 +32,23 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     };
 
     public void onBindViewHolder(ViewHolder holder, int position){
-        ShoppingModel item = ShoppingList.get(position);
+        ShoppingModel item = shoppingList.get(position);
         holder.item.setText(item.getItem());
         holder.item.setChecked(toBoolean(item.getStatus()));
     }
 
     public int getItemCount(){
-        return ShoppingList.size();
+        return shoppingList.size();
     }
 
     private boolean toBoolean(int n){
         return n!=0;
+    }
+
+    public void setItems(List<ShoppingModel> itemList) {
+        this.shoppingList = itemList;
+        // ensure that the recycler view is updated
+        notifyDataSetChanged();
     }
 
 
