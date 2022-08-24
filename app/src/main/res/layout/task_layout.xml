@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             tool:text="This is a test item"
             android:layout_weight="3"
-            android:paddingStart="8dp"/>
+            android:paddingStart="8dp"
+            android:buttonTint="@color/app_color" />
 
         <ImageButton
             android:id="@+id/itemEditButton"
