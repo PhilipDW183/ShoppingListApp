@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,12 +55,14 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox item;
-        Button itemDelete;
+        ImageButton itemDelete;
+        ImageButton itemEdit;
 
         ViewHolder(View view){
             super(view);
             item = view.findViewById(R.id.itemCheckbox);
             itemDelete = view.findViewById(R.id.itemDeleteButton);
+            itemEdit = view.findViewById(R.id.itemEditButton);
         }
     }
 
