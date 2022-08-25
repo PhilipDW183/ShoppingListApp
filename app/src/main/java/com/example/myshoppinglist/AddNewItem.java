@@ -80,7 +80,7 @@ public class AddNewItem extends BottomSheetDialogFragment {
                     newItemSaveButton.setTextColor(Color.GRAY);
                 }
                 else{
-                    newItemSaveButton.setEnabled(false);
+                    newItemSaveButton.setEnabled(true);
                     newItemSaveButton.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
                 }
             }
