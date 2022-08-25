@@ -103,6 +103,7 @@ public class AddNewItem extends BottomSheetDialogFragment {
                     ShoppingModel item = new ShoppingModel();
                     item.setItem(text);
                     item.setStatus(0);
+                    db.insertItem(item);
                 }
                 dismiss();
             }
