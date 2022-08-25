@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.myshoppinglist.Adapter.ShoppingAdapter;
 import com.example.myshoppinglist.Model.ShoppingModel;
 import com.example.myshoppinglist.Utils.DatabaseHandler;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     private RecyclerView itemsRecyclerView;
     private ShoppingAdapter itemsAdapter;
+    private FloatingActionButton fab;
 
     private List<ShoppingModel> itemList;
     private DatabaseHandler db;
@@ -41,21 +44,21 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemsRecyclerView = findViewById(R.id.itemsRecyclerView);
         itemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        itemsAdapter = new ShoppingAdapter(this);
+        itemsAdapter = new ShoppingAdapter(db, this);
         itemsRecyclerView.setAdapter(itemsAdapter);
 
-        ShoppingModel item = new ShoppingModel();
-        item.setItem("This is a test item");
-        item.setStatus(0);
-        item.setId(1);
+        fab = findViewById(R.id.addItem);
 
-        itemList.add(item);
-        itemList.add(item);
-        itemList.add(item);
-        itemList.add(item);
-        itemList.add(item);
-
+        itemList = db.getAllItems();
+        Collections.reverse(itemList);
         itemsAdapter.setItems(itemList);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddNewItem.newInstance().show(getSupportFragmentManager(), AddNewItem.TAG);
+            }
+        });
 
     }
 
