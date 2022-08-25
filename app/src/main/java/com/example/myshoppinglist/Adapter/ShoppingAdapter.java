@@ -75,6 +75,14 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         return activity;
     }
 
+    public void deleteItem(int position){
+        ShoppingModel item = shoppingList.get(position);
+        db.deleteItem(item.getId());
+        shoppingList.remove(position);
+        // notify recycler has been removed
+        notifyItemRemoved(position);
+    }
+
     public void editItem(int position){
         ShoppingModel item = shoppingList.get(position);
         Bundle bundle = new Bundle();
