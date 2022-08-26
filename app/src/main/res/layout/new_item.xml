@@ -7,8 +7,11 @@
         android:id="@+id/newItemText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="@null"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:hint="New Item"/>
 
     <Button
@@ -17,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/newItemText"
         android:layout_alignParentEnd="true"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:text="Save"
         android:textAllCaps="false"
         android:textColor="@android:color/darker_gray"
