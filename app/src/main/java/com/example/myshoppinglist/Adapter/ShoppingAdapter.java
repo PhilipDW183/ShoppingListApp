@@ -3,11 +3,11 @@ package com.example.myshoppinglist.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -36,24 +36,33 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.task_layout, parent, false);
+                .inflate(R.layout.item_layout, parent, false);
 
         return new ViewHolder(itemView);
     };
 
     public void onBindViewHolder(ViewHolder holder, int position){
         db.openDatabase();
-        ShoppingModel item = shoppingList.get(position);
+
+        final ShoppingModel item = shoppingList.get(position);
         holder.item.setText(item.getItem());
         holder.item.setChecked(toBoolean(item.getStatus()));
+        if(holder.item.isChecked()){
+            holder.item.setTextColor(Color.GRAY);
+        }
+
         holder.item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
                     db.updateStatus(item.getId(), 1);
+                    holder.item.setTextColor(Color.GRAY);
+                    item.setStatus(1);
                 }
                 else{
                     db.updateStatus(item.getId(), 0);
+                    holder.item.setTextColor(Color.BLACK);
+                    item.setStatus(0);
                 }
             }
         });

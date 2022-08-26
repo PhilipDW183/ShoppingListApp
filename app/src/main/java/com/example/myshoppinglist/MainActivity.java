@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         itemList = db.getAllItems();
         Collections.reverse(itemList);
+//        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
         itemsAdapter.setItems(itemList);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemList = db.getAllItems();
         // The recently added item will be at the top
         Collections.reverse(itemList);
+//        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
         itemsAdapter.setItems(itemList);
         // This will update the recycler view
         itemsAdapter.notifyDataSetChanged();
