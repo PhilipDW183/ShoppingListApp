@@ -28,6 +28,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     private List<ShoppingModel> shoppingList;
     private MainActivity activity;
     private DatabaseHandler db;
+    private int status;
 
     public ShoppingAdapter(DatabaseHandler db, MainActivity activity) {
         this.db = db;
@@ -44,7 +45,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position){
         db.openDatabase();
 
-        final ShoppingModel item = shoppingList.get(position);
+        ShoppingModel item = shoppingList.get(position);
         holder.item.setText(item.getItem());
         holder.item.setChecked(toBoolean(item.getStatus()));
         if(holder.item.isChecked()){
@@ -55,15 +56,13 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
-                    db.updateStatus(item.getId(), 1);
+                    status = 1;
                     holder.item.setTextColor(Color.GRAY);
-                    item.setStatus(1);
-                }
-                else{
-                    db.updateStatus(item.getId(), 0);
+                } else {
+                    status = 0;
                     holder.item.setTextColor(Color.BLACK);
-                    item.setStatus(0);
                 }
+                updateItem(holder.getAbsoluteAdapterPosition(), status);
             }
         });
 
@@ -135,6 +134,12 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         AddNewItem fragment = new AddNewItem();
         fragment.setArguments(bundle);
         fragment.show(activity.getSupportFragmentManager(), AddNewItem.TAG);
+    }
+
+    public void updateItem(int position, int status){
+        ShoppingModel item = shoppingList.get(position);
+        db.updateStatus(item.getId(), status);
+        shoppingList.get(position).setStatus(status);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
