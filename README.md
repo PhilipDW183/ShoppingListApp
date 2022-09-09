@@ -32,6 +32,8 @@ The current application allows you to:
 While the app currently works there are still some changes that I hope to be able to implement
 in the future as features or chanegs to the current application:
 
+- Add an introduction to the application for new users on load to show how to use the app
+- Add a button to delete all items that have been ticked as in the basket
 - Moving all the checked items to the bottom of the list once an item is checked
 - Adding the ability to create multiple shopping lists with titles
 - The ability to create different types of lists (shopping list, to do list, birthday list) with
