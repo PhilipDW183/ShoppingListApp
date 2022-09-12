@@ -83,24 +83,38 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemsAdapter.notifyDataSetChanged();
     }
 
-    public void showAlert() {
-        AlertDialog ad = new AlertDialog.Builder(getActivity())
-    }
 
     public void clearClickedItems() {
 
-        itemList = db.getAllItems();
-        for (int i = 0; i < itemList.size(); i ++) {
-            item = itemList.get(i);
-            if (item.getStatus() == 1){
-                db.deleteItem(item.getId());
-            }
-        }
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        ad.create();
+        ad.setCancelable(true);
+        ad.setTitle("Remove ticked items");
+        ad.setMessage("Are you sure you want to remove all ticked items");
 
-        itemList = db.getAllItems();
-        Collections.reverse(itemList);
-        itemsAdapter.setItems(itemList);
-        itemsAdapter.notifyDataSetChanged();
+        ad.setPositiveButton("Confirm",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        itemList = db.getAllItems();
+                        for (int j = 0; j < itemList.size(); j ++) {
+                            item = itemList.get(j);
+                            if (item.getStatus() == 1){
+                                db.deleteItem(item.getId());
+                            }
+                        }
+                        handleDialogClose(dialogInterface);
+                    }
+                });
+
+        ad.setNegativeButton(android.R.string.cancel,
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+
+        ad.show();
 
     }
 
