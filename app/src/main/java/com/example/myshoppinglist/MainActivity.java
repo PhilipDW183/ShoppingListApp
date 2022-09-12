@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     private RecyclerView itemsRecyclerView;
     private ShoppingAdapter itemsAdapter;
-    private FloatingActionButton fab;
+    private FloatingActionButton addItemButton;
 
     private List<ShoppingModel> itemList;
     private DatabaseHandler db;
@@ -47,19 +47,21 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemsAdapter = new ShoppingAdapter(db, this);
         itemsRecyclerView.setAdapter(itemsAdapter);
 
-        fab = findViewById(R.id.addItem);
+        addItemButton = findViewById(R.id.addItem);
 
         itemList = db.getAllItems();
         Collections.reverse(itemList);
 //        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
         itemsAdapter.setItems(itemList);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AddNewItem.newInstance().show(getSupportFragmentManager(), AddNewItem.TAG);
             }
         });
+
+        
 
     }
 
