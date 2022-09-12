@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="app_color">#FF33B5E5</color>
     <color name="colorPrimary">@android:color/holo_blue_light</color>
+    <color name="delete_red">#FFCB1A35</color>
 </resources>
