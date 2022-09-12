@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -17,13 +18,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import kotlin.collections.ArrayDeque;
-
 public class MainActivity extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView itemsRecyclerView;
     private ShoppingAdapter itemsAdapter;
     private FloatingActionButton addItemButton;
+    private FloatingActionButton cleanItemsButton;
+    private ShoppingModel item;
 
     private List<ShoppingModel> itemList;
     private DatabaseHandler db;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemsRecyclerView.setAdapter(itemsAdapter);
 
         addItemButton = findViewById(R.id.addItem);
+        cleanItemsButton = findViewById(R.id.clearTickedItems);
 
         itemList = db.getAllItems();
         Collections.reverse(itemList);
@@ -61,8 +63,12 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
             }
         });
 
-
-
+        cleanItemsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearClickedItems();
+            }
+        });
     }
 
 
@@ -75,6 +81,27 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemsAdapter.setItems(itemList);
         // This will update the recycler view
         itemsAdapter.notifyDataSetChanged();
+    }
+
+    public void showAlert() {
+        AlertDialog ad = new AlertDialog.Builder(getActivity())
+    }
+
+    public void clearClickedItems() {
+
+        itemList = db.getAllItems();
+        for (int i = 0; i < itemList.size(); i ++) {
+            item = itemList.get(i);
+            if (item.getStatus() == 1){
+                db.deleteItem(item.getId());
+            }
+        }
+
+        itemList = db.getAllItems();
+        Collections.reverse(itemList);
+        itemsAdapter.setItems(itemList);
+        itemsAdapter.notifyDataSetChanged();
+
     }
 
 }
