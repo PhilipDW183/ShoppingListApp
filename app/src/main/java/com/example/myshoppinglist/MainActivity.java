@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     private ShoppingAdapter itemsAdapter;
     private FloatingActionButton addItemButton;
     private FloatingActionButton cleanItemsButton;
+    private FloatingActionButton helpButton;
     private ShoppingModel item;
 
     private List<ShoppingModel> itemList;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         addItemButton = findViewById(R.id.addItem);
         cleanItemsButton = findViewById(R.id.clearTickedItems);
+        helpButton = findViewById(R.id.onboardQuestion);
 
         itemList = db.getAllItems();
         Collections.reverse(itemList);
@@ -67,6 +70,13 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
             @Override
             public void onClick(View view) {
                 clearClickedItems();
+            }
+        });
+
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHelp();
             }
         });
     }
@@ -116,6 +126,13 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         ad.show();
 
+    }
+
+    private void openHelp() {
+        Intent intent = new Intent(MainActivity.this, OnboardActivity.class);
+        startActivity(intent);
+
+        finish();
     }
 
 }
