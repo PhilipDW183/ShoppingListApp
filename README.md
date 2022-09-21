@@ -1,5 +1,7 @@
 # My Shopping list app
 
+### [Now Available on Google Play!](https://play.google.com/store/apps/details?id=app.myshoppinglist)
+
 This app is an android shopping list app created by Philip Wilkinson, adapating the code from the
 [Penguin Codes ToDoList app tutorial](https://www.youtube.com/playlist?list=PLzEWSvaHx_Z2MeyGNQeUCEktmnJBp8136)
 to function as a shopping list. This gives the suer the ability to add, edit and remove items
