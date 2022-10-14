@@ -16,7 +16,8 @@
             android:id = "@+id/linearLayoutTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
 
             <TextView
                 android:id="@+id/listTitle"
@@ -39,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_help"
                 android:scaleType="center"
                 app:borderWidth="0dp"
@@ -69,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:backgroundTint="@color/app_color"
+        android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_baseline_add_32"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
