@@ -77,23 +77,12 @@
         app:borderWidth="0dp"
         />
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/clearTickedItems"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="32dp"-->
-<!--        android:backgroundTint="@color/delete_red"-->
-<!--        android:src="@drawable/ic_baseline_cleaning_services_24"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:borderWidth="0dp"-->
-<!--        />-->
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/clearTickedItems"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
+            android:layout_margin="26dp"
             android:backgroundTint="@android:color/transparent"
             android:src="@drawable/ic_baseline_delete_sweep_24"
             app:layout_constraintBottom_toBottomOf="parent"
