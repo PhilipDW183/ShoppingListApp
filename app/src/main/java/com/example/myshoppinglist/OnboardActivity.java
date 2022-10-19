@@ -59,7 +59,7 @@ public class OnboardActivity extends AppCompatActivity {
         PaperOnboardingPage source2 = new PaperOnboardingPage("Deleting items", "Use the bin shaped button on each item in the list to delete them", Color.parseColor("#ee5a5a"),R.drawable.delete_button_large, R.drawable.onboarding_arrow);
         PaperOnboardingPage source3 = new PaperOnboardingPage("Editing items", "Use the pencil shaped button on each item in the list to edit them", Color.parseColor("#73a3e6"),R.drawable.edit_button_large, R.drawable.onboarding_arrow);
         PaperOnboardingPage source4 = new PaperOnboardingPage("In the basket", "Use the tick box on the left of each item to mark them as in your basket or purchased", Color.parseColor("#6be373"),R.drawable.item_checkbox_large, R.drawable.onboarding_arrow);
-        PaperOnboardingPage source5 = new PaperOnboardingPage("Removing multiple items", "Use the sweeping icon in the bottom left to remove all items in the basket (those that have a tick next to them) \n\n\n\nSwipe from right to left to start the app", Color.parseColor("#de861b"),R.drawable.ic_baseline_cleaning_services_24_large, R.drawable.onboarding_arrow);
+        PaperOnboardingPage source5 = new PaperOnboardingPage("Removing multiple items", "Use the sweeping icon in the bottom left to remove all items in the basket (those that have a tick next to them) \n\n\n\nSwipe from right to left to start the app", Color.parseColor("#de861b"),R.drawable.ic_baseline_delete_sweep_24, R.drawable.onboarding_arrow);
 
         // array list is used to store
         // data of onboarding screen

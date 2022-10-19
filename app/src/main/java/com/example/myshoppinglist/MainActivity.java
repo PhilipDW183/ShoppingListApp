@@ -1,6 +1,7 @@
 package com.example.myshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     private RecyclerView itemsRecyclerView;
     private ShoppingAdapter itemsAdapter;
     private FloatingActionButton addItemButton;
-    private FloatingActionButton cleanItemsButton;
+    private AppCompatImageButton cleanItemsButton;
     private FloatingActionButton helpButton;
     private ShoppingModel item;
 
