@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         helpButton = findViewById(R.id.onboardQuestion);
 
         itemList = db.getAllItems();
-        Collections.reverse(itemList);
 //        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
         itemsAdapter.setItems(itemList);
 
@@ -86,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     @Override
     public void handleDialogClose(DialogInterface dialog){
         itemList = db.getAllItems();
-        // The recently added item will be at the top
-        Collections.reverse(itemList);
 //        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
         itemsAdapter.setItems(itemList);
         // This will update the recycler view
