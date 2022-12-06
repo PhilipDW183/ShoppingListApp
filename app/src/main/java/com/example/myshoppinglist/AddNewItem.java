@@ -1,6 +1,7 @@
 package com.example.myshoppinglist;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -54,6 +55,17 @@ public class AddNewItem extends BottomSheetDialogFragment {
 
         db = new DatabaseHandler(getActivity());
         db.openDatabase();
+
+        View touchOutsideView = getDialog().getWindow()
+                .getDecorView()
+                .findViewById(com.google.android.material.R.id.touch_outside);
+        
+        touchOutsideView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
 
         // changes whether updating a task or not
         boolean isUpdate = false;
