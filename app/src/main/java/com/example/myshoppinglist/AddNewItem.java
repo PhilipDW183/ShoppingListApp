@@ -48,6 +48,12 @@ public class AddNewItem extends BottomSheetDialogFragment {
     }
 
     @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+        dismiss();
+    }
+
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         newItemText = getView().findViewById(R.id.newItemText);
@@ -56,10 +62,11 @@ public class AddNewItem extends BottomSheetDialogFragment {
         db = new DatabaseHandler(getActivity());
         db.openDatabase();
 
-        View touchOutsideView = getDialog().getWindow()
+        View touchOutsideView = getDialog()
+                .getWindow()
                 .getDecorView()
                 .findViewById(com.google.android.material.R.id.touch_outside);
-        
+
         touchOutsideView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
