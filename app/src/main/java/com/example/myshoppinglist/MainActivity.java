@@ -2,6 +2,7 @@ package com.example.myshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddNewItem.newInstance().show(getSupportFragmentManager(), AddNewItem.TAG);
+                showNewItemDialog();
             }
         });
 
@@ -91,6 +92,11 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         itemsAdapter.notifyDataSetChanged();
     }
 
+    private void showNewItemDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        AddNewItemFloat newItemFloat = new AddNewItemFloat();
+        newItemFloat.show(fm, "new_item_float");
+    }
 
     public void clearClickedItems() {
 
