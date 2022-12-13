@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myshoppinglist.AddNewItem;
+import com.example.myshoppinglist.AddNewItemFloat;
 import com.example.myshoppinglist.MainActivity;
 import com.example.myshoppinglist.Model.ShoppingModel;
 import com.example.myshoppinglist.R;
@@ -23,7 +23,6 @@ import com.example.myshoppinglist.Utils.DatabaseHandler;
 import java.util.List;
 
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
-
 
     private List<ShoppingModel> shoppingList;
     private MainActivity activity;
@@ -114,9 +113,9 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         Bundle bundle = new Bundle();
         bundle.putInt("id", item.getId());
         bundle.putString("item", item.getItem());
-        AddNewItem fragment = new AddNewItem();
+        AddNewItemFloat fragment = new AddNewItemFloat();
         fragment.setArguments(bundle);
-        fragment.show(activity.getSupportFragmentManager(), AddNewItem.TAG);
+        fragment.show(activity.getSupportFragmentManager(), AddNewItemFloat.TAG);
     }
 
     public void updateItem(int position, int status){
