@@ -1,0 +1,55 @@
+<RelativeLayout
+    android:id="@+id/new_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="5dp"
+    android:background="@drawable/new_item_bg">
+
+    <EditText
+        android:id="@+id/newItemText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/new_item_text_bg"
+        android:hint="New Item"
+        android:includeFontPadding="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/newItemSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newItemText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/new_item_text_bg"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@android:color/darker_gray"
+        android:textColorLink="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/newItemCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newItemText"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toStartOf="@+id/newItemSave"
+        android:background="@drawable/new_item_text_bg"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/delete_red"
+        android:textSize="20sp" />
+
+</RelativeLayout>
