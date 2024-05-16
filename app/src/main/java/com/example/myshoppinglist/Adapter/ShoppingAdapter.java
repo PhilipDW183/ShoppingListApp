@@ -48,7 +48,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         holder.item.setText(item.getItem());
         holder.item.setChecked(toBoolean(item.getStatus()));
         if(holder.item.isChecked()){
-            holder.item.setTextColor(Color.GRAY);
+            holder.item.setTextColor(R.color.checked_text);
         }
 
         holder.item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -56,10 +56,10 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
                     status = 1;
-                    holder.item.setTextColor(Color.GRAY);
+                    holder.item.setTextColor(R.color.checked_text);
                 } else {
                     status = 0;
-                    holder.item.setTextColor(Color.BLACK);
+                    holder.item.setTextColor(R.color.unchecked_text);
                 }
                 updateItem(holder.getAbsoluteAdapterPosition(), status);
             }
