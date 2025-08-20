@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         helpButton = findViewById(R.id.onboardQuestion);
 
         itemList = db.getAllItems();
-//        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
+        Collections.sort(itemList, (ShoppingModel a1, ShoppingModel a2) -> a1.getStatus()-a2.getStatus());
         itemsAdapter.setItems(itemList);
 
         addItemButton.setOnClickListener(new View.OnClickListener() {
